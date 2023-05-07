@@ -1,0 +1,2661 @@
+#########################
+cpp drawbacks
+#########################
+
+- challenging to learn.
+- easy to introduce terrible bugs.
+- often time consuming.
+- not truly platform independent.
+
+#########################
+why cpp
+#########################
+
+- very fast
+- low level/hardware access
+- get lot of processing in a short time
+- good for high end games, AI, device drivers
+
+#########################
+compilers (software that turns the source code into a program)
+#########################
+
+- GNU G++/GCC
+- MinGW
+- Visual CPP compilers
+
+#########################
+IDE (working space
+#########################
+
+- eclipse cdt
+- visual cpp
+- code blocks
+- emacs, vim, etc.
+
+#########################
+Hello world basic program
+#########################
+// hello world
+// basic program
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	cout << "Hello world..." << endl;
+	return 0;
+}
+
+#########################
+outputting text 
+#########################
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	cout << "some text here..." << flush;	// flush does not put endline
+	cout << "some other text here" << endl;
+	cout << "apple " << "orange " << "banana " << endl;
+	return 0;
+}
+
+#########################
+outputting text 
+#########################
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int age = 35;
+	int floor = 7;
+	int route = 21;
+
+	cout << "The age is = " << age << endl;
+	cout << "The age next year would be = " << age + 1 << endl;
+	cout << "The working floor is = " << floor << endl;
+	cout << "The cab route is = " << route << endl;
+	return 0;
+}
+
+#########################
+string, text
+#########################
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string firstname = "chandra shaker";
+	string lastname = "balure";
+	cout << firstname << endl;
+	cout << lastname << endl;
+	cout << "The complete name is = " << firstname + lastname << endl;
+	return 0;
+}
+
+#########################
+user input
+#########################
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string firstname;
+	string lastname;
+	cout << "Enter your first name = " << flush;
+	cin >> firstname;
+	cout << "Enter your last name = " << flush;
+	cin >> lastname;
+	cout << "Your full name is = " << firstname + lastname << endl;
+
+	return 0;
+}
+
+#########################
+integer types
+https://cplusplus.com/reference/climits/
+#########################
+#include <iostream>
+#include <climits>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+	int num;	// default, the INT here is LONG INT
+	cout << "MIN value of INT is = " << INT_MIN << endl;	//MIN = -(2^31 - 1)
+	cout << "MAX value of INT is = " << INT_MAX << endl;	//MAX = 2^31 - 1
+
+	short int numShortInt = pow(2, 15) - 1;
+	unsigned short int numUnsignedShortInt = pow(2, 31) - 1;
+	cout << "Short int MAX num is = " << numShortInt << endl;
+	//cout << "Next number in Short int is = " << numShortInt + 2 << endl;
+	cout << "Unsigned Short int MAX num is = " << numUnsignedShortInt << endl;
+	//cout << "Next number in Unsigned Short int is = " << numUnsignedShortInt + 2 << endl;
+    
+	return 0;
+}
+
+#########################
+floating types
+https://cplusplus.com/reference/iomanip/?kw=iomanip
+#########################
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+	float fvalue = 10.123;
+	double dvalue = 123.456789;
+	long double ldvalue = 123.123123123123;
+	cout << "sizeof float = " << sizeof(float) << endl;
+	cout << "sizeof double = " << sizeof(double) << endl;
+	cout << "sizeof long double = " << sizeof(long double) << endl;
+	cout << "Floating value in fixed format = " << fixed << fvalue << endl;
+	cout << "Floating value in fixed format = " << setprecision(20) << fixed << fvalue << endl;
+	cout << "Floating value in scientific format = " << scientific << fvalue << endl;
+	return 0;
+}
+
+#########################
+Bool and Char
+#########################
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+int main()
+{
+	bool bvalue = true;
+    bool bvalue2 = false;
+    cout << "Boolean value is = " << bvalue << " and " << bvalue2 << endl;
+    cout << "Size of bool = " << sizeof(bool) << endl;
+    
+    char cvalue = 'a';
+    char cvalue2 = 66;
+    cout << "Char value is = " << cvalue << endl;
+    cout << "Char value is = " << (int)cvalue2 << " and " << (char)cvalue2 << " and " << cvalue2 << endl;
+    cout << "Size of char = " << sizeof(char) << endl;
+    cout << "Char MIN and MAX = " << CHAR_MIN << " and " << CHAR_MAX << endl;
+    
+    wchar_t wcharvalue = '0';
+    cout << "wchar value is = " << wcharvalue << endl;
+    cout << "size of wchar = " << sizeof(wchar_t) << endl;
+	return 0;
+}
+
+#########################
+if()
+#########################
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string password = "avatar";
+    
+    string input;
+    cout << "Enter the password = " << flush;
+    cin >> input;
+    
+    if(input == password)
+    {
+    	cout << "Access granted" << endl;
+    }
+    
+    if(input != password)
+    {
+    	cout << "Access restricted" << endl;
+    }
+    
+	return 0;
+}
+
+#########################
+if-else and if-else-if
+#########################
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() 
+{
+  cout << "1. Add record" << endl;
+  cout << "2. Delete record" << endl;
+  cout << "3. View record" << endl;
+  cout << "4. Search record" << endl;
+  cout << "5. Quit" << endl;
+  
+  cout << "Enter your selection = " << flush;
+  int val;
+  cin >> val;
+  
+  if (val == 5) cout << "QUITTING" << endl;
+  else cout << "Not-QUITTING" << endl;
+  
+  if (val == 1) cout << "Adding new record ..." << endl;
+  else if (val == 2) cout << "Deleting the record ..." << endl;
+  else if (val == 3) cout << "Viewing the record ..." << endl;
+  else if (val == 4) cout << "Searching the record ..." << endl;
+  else if (val == 5) cout << "Quitting ..." << endl;
+  else cout << "Invalid option entered ..." << endl;
+  
+  return 0;
+}
+
+
+#########################
+Comparing floats
+#########################
+- Comparing the float values is inaccurate. 
+- The float numbers can never be exactly same.
+- The values after decimal places differ from system-to-system.
+- Instead, use > or < for comparing floating type values.
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() 
+{
+  float val = 1.2;
+  if (val == 1.2) cout << "equal... " << endl;
+  else cout << "Not-equal..." << endl;
+  
+  cout << "Float value is = " << setprecision(10) << val << endl;
+  
+  return 0;
+}
+
+#########################
+C++ conditions
+#########################
+#include <iostream>
+using namespace std;
+
+/*
+ * == is a compare equal condition
+ * > is a greater than condition
+ * < is less than condition
+ * != is not equal condition
+ */
+
+int main() 
+{
+  int val;
+  val = 55;
+  // we can combine multiple conditions in the expression.
+  // if the condition expression is big, then break it into smaller expression by using brackets ( and ), and assign it to some bool variable. 
+  // e.g. bool cond1 = (val > 50) && (val < 100)
+  if (val > 50 && val < 100)         // && gives true / false output // & is bit-wise op
+  {
+  	cout << "Condition is TRUE, val is in the range" << endl;
+  }
+  else
+  {
+  	cout << "Condition is FALSE, val is outside the range" << endl;
+  }
+  return 0;
+}
+
+#########################
+While loops
+#########################
+- while loops are the simplest loops.
+- while loop is similar to IF condition.
+- while loop will execute until the condition is TRUE.
+    NOTE: keep updating the condition inside the while loop.
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int count = 0;
+	while (count < 5)	// while(true) // this is infinite loop, so avoid this
+    {
+    	cout << "Hello..." << count << endl;
+        count = count + 1;
+    }
+    cout << "End of program..." << endl;
+	return 0;
+}
+
+#########################
+Do-While loops
+#########################
+- DO will execute atlease once.
+- If the WHILE condition is true, then the DO will execute again.
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int val = 7;
+    do
+    {
+        cout << "Hello" << endl;
+    } while(val < 10);              // if the condition is true then the do loop will execute second time and so on, else it will not execute second time.
+    return 0;
+}
+
+###################################
+#include<iostream>
+using namespace std;
+int main()
+{
+    const string pwd = "hello";
+    string input;
+    cout << "Enter the password = " << flush;           // this line is written twice
+    cin >> input;                                       // this line is written twice
+    
+    if (input == pwd)
+        cout << "Password accepted..." << endl;
+    while (input != pwd)                    // it keeps executing until correct password is entered.
+    {
+        cout << "Access denied..." << endl;
+        cout << "Enter the password = " << flush;     // this line is written twice
+        cin >> input;                                 // this line is written twice
+    }  
+    cout << "Password accepted..." << endl;
+    return 0;
+}
+
+###################################
+#include<iostream>
+using namespace std;
+int main()
+{
+    const string pwd = "hello";
+    string input;
+    do                                          // do code executes atleast once. We avoided duplicating some code here.
+    {
+        cout << "Enter the password = " << flush;         
+        cin >> input; 
+        if (input != pwd)
+            cout << "Access denied..." << endl;
+    } while (input != pwd)
+    cout << "Password accepted..." << endl;
+    return 0;
+}
+
+#########################
+For loop
+#########################
+- iteration loop.
+- first arg: expression, It will run before the loop starts
+- second arg: condition, it will execute loop untill condition is true.
+- third arg: condition, it will execute after the loop is executed once and everytime.
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    for (int i = 0 ; i < 10 ; i++)
+    {
+        cout << "hello " << i << endl;
+    }
+    return 0;
+}
+
+#########################
+Break and Continue
+#########################
+- BREAK: jumps off the loop.
+    - more often used in WHILE loops.
+    - ignores rest of the loop iteration and exit it.
+    
+- CONTINUE: breaks current iteration, and goes to next iteration.
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    for (int i = 0 ; i < 10 ; i++)
+    {
+        if (i == 3)
+            break;
+        cout << "looping... " << i << endl;
+    }
+    cout << "Program quitting..." << endl;
+    return 0;
+}
+
+###############################################
+#include<iostream>
+using namespace std;
+int main()
+{
+    const string pwd = "hello";
+    string input;
+    do                                          // do code executes atleast once. We avoided duplicating some code here.
+    {
+        cout << "Enter the password = " << flush;         
+        cin >> input; 
+        if (input == pwd)
+            break;
+        else
+            cout << "Access denied..." << endl;
+    } while (true)
+    cout << "Password accepted..." << endl;
+    return 0;
+}
+
+###############################################
+#include<iostream>
+using namespace std;
+int main()
+{
+    for (int i = 0 ; i < 10 ; i++)
+    {
+        if (i % 2 == 0)
+            cout << "hello " << i << endl;
+        else    
+            continue;
+    }
+    return 0;
+}
+
+#########################
+Array: lists of data
+#########################
+- array is list of values in a single variable.
+- to access the first element, we start with [0] index.
+- NOTE: be aware of not using the out-of-range indexes.
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int list1[3];     // declation. hence the size is REQUIRED.
+    list1[0] = 11;
+    //list1[1] = 22;
+    list1[2] = 33;
+    cout << list1[0] << endl;
+    cout << list1[1] << endl;
+    cout << list1[2] << endl;
+    cout << "bad idea " << list1[3] << endl;
+    
+    double list2[3] = {1.1, 2.2, 3.3};
+    //cout << sizeof(list2) << endl;
+    for (int i=0; i<3; i++)
+    	cout << list2[i] << endl;
+        
+    int list3[10] = {};
+    for (int i=0; i<10; i++)
+    	cout << list3[i] << endl;
+        
+    string texts[] = {"chandra", "shaker", "balure"};   // initialization. hence size NOT REQ.
+    for (int i=0; i<3; i++)
+    	cout << texts[i] << endl;   
+    return 0;
+}
+
+######################################################
+#include<iostream>
+using namespace std;
+int main()
+{
+	int size = 10;
+    int tableNo = 15;
+    int table[size];
+    for (int i=0; i<size; i++)
+    {
+    	table[i] = tableNo*(i+1);
+    }
+    for (int i=0; i<size; i++)
+    {
+    	cout << tableNo << " X " << i+1 << " = " << table[i] << endl;
+    }
+    return 0;
+}
+
+#########################
+Multidimentional Array
+#########################
+#include<iostream>
+using namespace std;
+int main()
+{
+	int table = 12;
+    int num = 10;
+	int full_table[num][table] = {};
+    
+    for (int i=0; i<num; i++)
+   	{
+    	for (int j=0; j<table; j++)
+        {
+        	full_table[i][j] = (i+1)*(j+1);
+        }
+    }
+    for (int i=0; i<num; i++)
+   	{
+    	for (int j=0; j<table; j++)
+        {
+        	cout << full_table[i][j] << "\t";
+        }
+         cout << endl;
+    }
+        
+    return 0;
+}
+
+#########################
+Sizeof and Array
+#########################
+- SIZEOF is an operator.
+- It is mostly used to find the size (no. of bytes) of any data-type for different computer.
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int val = 33;
+    cout << sizeof(val) << endl;
+    cout << sizeof(int) << endl;
+    
+    int arr[] = {1, 2, 3, 4, 5};
+    cout << sizeof(arr) << endl;
+    cout << sizeof(int) << endl;
+
+    for (unsigned int i = 0; i < sizeof(arr)/sizeof(int); i++)
+    {
+    	cout << arr[i] << " " << flush;
+        
+    }
+    cout << endl;  
+    return 0;
+}
+
+#########################
+Sizeof multidimensional array
+#########################
+- In multi-dimensional array, find the size of each ROW.
+- For output loop: find the no. of rows, i.e. sizeof(total)/sizeof(row)
+- For inner loop: find the no. of elements in each row, i.e. sizeof(row)/sizeof(datatype)
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	string animals[][3] = {
+    {"cat", "mat", "rat"},
+    {"pegion", "parrot", "peacock"}
+    };
+    cout << animals[0][1] << endl;
+	cout << sizeof(string) << endl;
+    cout << sizeof(animals) << endl;
+    cout << sizeof(animals[0]) << endl;
+    
+    for (unsigned int i = 0; i < sizeof(animals)/sizeof(animals[0]); i++)
+    {
+    	for (unsigned int j = 0; j < sizeof(animals[0])/sizeof(string); j++)
+        {
+        	cout << animals[i][j] << "\t";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+#########################
+Switch
+#########################
+- switch statement lets you choose one of the case from multiple cases.
+- similar to if-else-if.
+- ofter faster then if-else-if.
+- having a BREAK in each case is important, otherwise it will execute the following case also.
+- DEFAULT is the last item executed if the expression is not matched with any of the the case labels.
+- case labels can be a CONST INT.
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	int a = 5;
+    int b = 3;
+    int c = 0;
+    
+    int op = 1;
+    const int case_num = 1;    // const int can be used as CASE LABEL
+    
+    switch(op)
+    {
+    	case case_num:
+        	c = a + b;
+            cout << "addition = " << c << endl;
+            break;
+        case 2:
+        	c = a - b;
+            cout << "subtraction = " << c << endl;
+            break;
+        case 3:
+        	c = a * b;
+            cout << "multiplication = " << c << endl;
+            break;
+        case 4:
+        	c = a / b;
+            cout << "division = " << c << endl;
+            break;
+        default:
+            cout << "wrong operation..." << endl;
+            break;
+    }
+    return 0;
+}
+
+#########################
+Functions
+#########################
+- Function is a separate peice of code.
+- Function usually contain multiple lines.
+- Functions can be invoked anywhere from the code.
+- We can split the program in the logical sections.
+- Idea of the function is to make the MAIN() really simple and short.
+    - rest of the overload is passed to the function execution.
+    
+#include <iostream>
+#include <stdio.h> 
+
+using namespace std;
+
+void showMenu()
+{
+	cout << "1. search" << endl;
+    cout << "2. view record" << endl;
+    cout << "3. quit" << endl;
+}
+
+void processSelection()
+{
+	cout << "Enter selection = " << endl;
+    int input;
+    cin >> input;
+    switch(input)
+    {
+    	case 1:
+            cout << "searching..." << endl;
+            break;
+        case 2:
+            cout << "viewing..." << endl;
+            break;
+        case 3:
+            cout << "quitting..." << endl;
+            break;
+        default:
+            cout << "wrong operation..." << endl;
+            break;
+    }
+}
+
+int main() 
+{
+    showMenu();             // function call
+    processSelection();     // function call
+    return 0;
+}
+
+#########################
+Return values
+#########################
+- The function can return a value into the calling functions.
+- e.g. Main() calls function1() and function2(), and let function2() returns a value back to Main().
+- Return type of the function should be the type of the value it returns, e.g. int, float, double, etc.
+- Return type can be any data type, e.g. int, float, double, etc.
+
+#include <iostream>
+#include <stdio.h> 
+
+using namespace std;
+
+void showMenu()
+{
+
+	cout << "1. search" << endl;
+    cout << "2. view record" << endl;
+    cout << "3. quit" << endl;
+}
+
+int processSelection()
+{
+    int input;
+    cout << "Type a number: "; // Type a number and press enter
+    cin >> input; // Get user input from the keyboard
+    cout << "Your number is: " << input << endl;
+    return input;
+    
+}
+
+int main() 
+{
+    showMenu();
+    int selection = processSelection();
+    
+    switch(selection)
+    {
+    	case 1:
+            cout << "searching..." << endl;
+            break;
+        case 2:
+            cout << "viewing..." << endl;
+            break;
+        case 3:
+            cout << "quitting..." << endl;
+            break;
+        default:
+            cout << "wrong operation..." << endl;
+            break;
+    }
+    
+    return 0;
+}
+
+#########################
+Function Parameters
+#########################
+- We can pass a parameter to the function.
+- Pass a parameter to the function when it is called.
+- It copies the value from the function-calling to the function-definition.
+- The sending and receiving data-type must be SAME.
+
+#include <iostream>
+#include <stdio.h> 
+
+using namespace std;
+
+void showMenu()
+{
+
+	cout << "1. search" << endl;
+    cout << "2. view record" << endl;
+    cout << "3. quit" << endl;
+}
+
+int getInput()
+{
+    int input;
+    cout << "Type a number: "; // Type a number and press enter
+    cin >> input; // Get user input from the keyboard
+    cout << "Your number is: " << input << endl;
+    return input;   
+}
+
+void processSelection(int option)
+{
+	switch(option)
+    {
+    	case 1:
+            cout << "searching..." << endl;
+            break;
+        case 2:
+            cout << "viewing..." << endl;
+            break;
+        case 3:
+            cout << "quitting..." << endl;
+            break;
+        default:
+            cout << "wrong operation..." << endl;
+            break;
+    }
+}
+
+int main() 
+{
+    showMenu();
+    int selection = getInput();
+    processSelection(selection);    
+    
+    return 0;
+}
+
+#########################
+Headers and Prototypes
+#########################
+- When the function-call is -ABOVE- the function-def, then it throws error, e.g. UNDECLARED IDENTIFIER
+- To deal with it, create a PROTOTYPE on -TOP-.
+    - PROTOTPE of a function includes function name, and the return list and parameter list.
+    - e.g. ret1 functionName(param1, param2);
+    
+- We can add all the prototype related functions in a single file.
+    - called header file.
+    - and, add it in the main cpp file as #include "new_header_file.h"
+- The standard header files will be added using < >, as compiler knows the location of these header files.
+- The user defined header files will be added using " ", as compiler DOES NOT know the location of these header files.
+    - The content inside the header files will be copied at the location where the header file is mentioned.
+    - The user defined header file will have list of items to be include, and these are written between #ifndef and #endif directives.
+    - The #ifndef is used to avoid multiple inclusion of the list of item in the header file.
+- During the build, it goes through various stages.
+    - First stage: pre-processor run, and it looks for the #include pre-processor directives.
+    - Second stage: 
+    
+##############################################################################
+
+#########################
+Classes
+#########################
+
+- Create new project "classes"
+    - Create a Cat.h file, which will have template (prototype) of the functions or classes.
+    - Create a Cat.cpp file, which will have definitions of all the templates (prototype) of the functions and classes.
+- Classes are the way of combining the DATA and SUBROUTINEs together.
+
+============================
+// Classes.cpp
+#include <iostream>
+#include "Cat.h"
+
+using namespace std;
+
+int main()
+{
+    speak();
+    jump();
+    return 0;
+}
+==============================
+// Cat.h        // contains only the template (or prototype)
+#ifndef CAT_H_
+#define CAT_H_
+
+void speak();
+void jump();
+
+#endif // CAT_H_
+==============================
+
+// Cat.cpp      // contains the definitions of template (or prototype)
+#include <iostream>
+#include "Cat.h"
+
+using namespace std;
+
+void speak() 
+{
+    cout << "meooooowww" << endl;
+}
+
+void jump()
+{
+    cout << "jumping over the table" << endl;
+}
+======================================
+
+- Modification to the existing code is done to follow the OOPs progamming using classes.
+
+============================
+// Classes.cpp
+#include <iostream>
+#include "Cat.h"
+
+using namespace std;
+
+int main()
+{
+    Cat cat_ob;             // created class object.
+    cat_ob.speak();         // access class functions
+    cat_ob.jump();          // access class functions
+    return 0;
+}
+==============================
+// Cat.h        // contains only the template (or prototype)
+#ifndef CAT_H_
+#define CAT_H_
+
+class Cat
+{
+public:
+    void speak();
+    void jump();
+};
+
+#endif // CAT_H_
+==============================
+
+// Cat.cpp      // contains the definitions of template (or prototype)
+#include <iostream>
+#include "Cat.h"
+
+using namespace std;
+
+void Cat::speak()       // function definition
+{
+    cout << "meooooowww" << endl;
+}
+
+void Cat::jump()             // function definition
+{
+    cout << "jumping over the table" << endl;
+}
+======================================
+
+- We could also have the state of the Cat, e.g. sleepiness, hungryness, angryness, etc.
+    - These stages are declared as VARIABLES in the class.
+
+#########################
+Data Members
+#########################
+
+- The class combines DATA and FUNCTIONs together.
+- e.g. class Cat, not only DOES some action, but it also has some STATE.
+- DOES:
+    - speak()
+    - jump()
+- STATE:
+    - bool happy
+    - bool hungy 
+    - bool sleepy
+
+============================
+
+// Classes.cpp
+#include <iostream>
+#include "Cat.h"
+
+using namespace std;
+
+int main()
+{
+    Cat jim;                // created class object.
+    jim.happy =True;       // access class data
+    jim.speak();            // access class functions
+    
+    Cat bob;
+    bob.happy = False;       // access class data
+    bob.speak();            // access class functions
+    return 0;
+}
+==============================
+
+// Cat.h        // contains only the template (or prototype)
+#ifndef CAT_H_
+#define CAT_H_
+
+class Cat
+{
+public:
+    bool happy;
+    void speak();
+};
+
+#endif // CAT_H_
+==============================
+
+// Cat.cpp      // contains the definitions of template (or prototype)
+#include <iostream>
+#include "Cat.h"
+
+using namespace std;
+
+void Cat::speak()       // function definition
+{
+    if (happy)
+    {
+        cout << "meooooowww" << endl;
+    }
+    else
+    {
+        cout << "sssssssss" << endl;
+    }
+}
+======================================
+
+- The DATA is accessible outside the class, which is not good.
+    - Hence, encapsulate the DATA and FUNCTIONS together.
+    - Move DATA from PUBLIC to PRIVATE specifiers.
+    - To define the DATA, we can 
+        - either define at the place itself.
+        - either call constructor() to initialize the DATA
+        - either call function() to set the value for the DATA
+
+============================
+
+// Classes.cpp
+#include <iostream>
+#include "Cat.h"
+
+using namespace std;
+
+int main()
+{
+    Cat jim;                // created class object.
+    jim.set_happy();        // access class functions
+    jim.speak();            // access class functions
+    
+    Cat bob;
+    jim.set_angry();        // access class functions
+    bob.speak();            // access class functions
+    return 0;
+}
+==============================
+
+// Cat.h        // contains only the template (or prototype)
+#ifndef CAT_H_
+#define CAT_H_
+
+class Cat
+{
+    private:
+        bool happy;
+    public:
+        void set_happy();
+        void set_angry();
+        void speak();
+};
+
+#endif // CAT_H_
+==============================
+
+// Cat.cpp      // contains the definitions of template (or prototype)
+#include <iostream>
+#include "Cat.h"
+
+using namespace std;
+
+void Cat::speak()       // function definition
+{
+    if (angry)
+    {
+        cout << "meooooowww" << endl;
+    }
+    else
+    {
+        cout << "sssssssss" << endl;
+    }
+}
+
+void Cat::set_happy()
+{
+    happy = True;
+} 
+
+void Cat::set_angry()
+{
+    happy = False;
+}   
+======================================
+
+#########################
+Constructors and Destructors
+#########################
+
+- Constructors are special methods that runs when object is instantiated.
+    - When an object is created.
+    - When memory is alloted to the object.
+- Destructors are special methods that runs when object is destroyed.
+- Uninitialized variables have garbage values in it.
+    - Always initialize the variables with some value using constructors.
+    
+============================
+
+// Classes.cpp
+#include <iostream>
+#include "Cat.h"
+
+using namespace std;
+
+int main()
+{
+    cout << "Starting the program..." << endl;
+    
+    {
+        Cat jim;                // created class object.
+        jim.speak();            // access class functions
+    }           // destructor will be called here, and the object will be destroyed. jim cannot be used beyond this point.
+    
+    Cat bob;
+    bob.speak(); 
+
+    cout << "Ending the program..." << endl;
+    return 0;
+}
+==============================
+
+// Cat.h        // contains only the template (or prototype)
+#ifndef CAT_H_
+#define CAT_H_
+
+class Cat
+{
+    private:
+        bool happy;
+    public:
+        void speak();
+        Cat();              // must be in a PUBLIC section
+        ~Cat();             // must be in a PUBLIC section
+};
+
+#endif // CAT_H_
+==============================
+
+// Cat.cpp      // contains the definitions of template (or prototype)
+#include <iostream>
+#include "Cat.h"
+
+using namespace std;
+
+void Cat::speak()       // function definition
+{
+    if (angry)
+    {
+        cout << "meooooowww" << endl;
+    }
+    else
+    {
+        cout << "sssssssss" << endl;
+    }
+}
+
+void Cat::Cat()             // constructor definition
+{
+    cout << "Cat created" << endl;
+    happy = True;
+} 
+
+void Cat::~Cat()            // destructor definition
+{
+    cout << "Cat destroyed" << endl;
+    happy = True;
+} 
+======================================
+
+#########################
+C++ Getters and Setters
+#########################
+
+- Getters and Setters are the methods for getting and setting values in a class.
+    - getting and setting instance variables.
+    
+============================
+
+// Getter_Setter.cpp
+#include <iostream>
+#include "Person.h"
+
+using namespace std;
+
+int main()
+{
+    Person p1;
+    p1.setName("ChandraShaker");
+    cout << p1.dispString() << endl;;
+    cout << "Name of the person with GET method is = " << p1.getName << endl;
+    
+    return 0;
+}
+==============================
+
+// Person.h        // contains only the template (or prototype)
+#ifndef PERSON_H_
+#define PERSON_H_
+
+#include <iostream>         // #include <string.h> is included in <iostream>
+
+class Person
+{
+    private:
+        string name;
+    public:
+        Person();       // constructor
+        string dispString();
+        void setName(string newName);     // setter function, and returns nothing (void)
+        string dispString();
+        string getName();
+};
+
+#endif // PERSON_H_
+==============================
+
+// Person.cpp      // contains the definitions of template (or prototype)
+#include <iostream>
+#include "Person.h"
+
+using namespace std;
+
+void Person::Person()       // function definition
+{
+    name = "Chandra";
+}
+
+string Person::dispString()
+{
+    return "Name of the person is = " + name;
+}
+
+void Person::setName(newName)
+{
+    name = newName;
+}
+
+string Person::getName()
+{
+    return name;
+}
+======================================
+
+#########################
+C++ String Stream
+#########################
+
+- String streams are concatanation of different types of data.
+    - e.g. concatanate STRING and DOUBLE.
+    - e.g. concatanate STRING and STRING into single STRING.
+    
+#include <iostream>
+#include <sstream>      // for string stream
+
+using namespace std;
+
+int main()
+{
+    string name = "Chandra";
+    int age = 35;
+        
+    // string info = "Name = " + name, "; Age = " + age;    // ERROR: we cannot add string to int
+    // cout << info << endl;
+    
+    stringstream ss;
+    ss << "Name is = ";
+    ss << name;
+    ss << "Age is = ";
+    ss << age;
+    string info = ss.str();
+    cout << info << endl;
+
+    return 0;
+}
+
+#########################
+Constructors Parameters and Overloading 
+#########################
+
+============================
+
+// Constructor_parameter.cpp
+#include <iostream>
+#include "Person.h"
+
+using namespace std;
+
+int main()
+{
+    Person p1;              // object creation
+    cout << p1.dispInfo() << endl;
+    
+    Person p2("Chandra");   // object creation with parameters
+    cout << p2.dispInfo() << endl;
+    
+    Person p3("Chandra", 35);   // object creation with parameters
+    cout << p3.dispInfo() << endl;
+    return 0;
+}
+==============================
+
+// Person.h        // contains only the template (or prototype)
+#ifndef PERSON_H_
+#define PERSON_H_
+
+#include <iostream>         // #include <string.h> is included in <iostream>
+using namespace std;
+
+class Person
+{
+    private:
+        string name;
+        int age;
+    public:
+        Person();       // constructor
+        Person(string newName) { name = newName; age = 0; };                    // constructor overloading
+        Person(string newName, int newAge) { name = newName; age = newAge };    // constructor overloading
+        string dispInfo();
+};
+
+#endif // PERSON_H_
+==============================
+
+// Person.cpp      // contains the definitions of template (or prototype)
+#include <iostream>
+#include <sstream>
+#include "Person.h"
+
+using namespace std;
+
+void Person::Person()       // constructor definition
+{
+    name = "undefined";
+    age = 0;
+}
+
+string Person::dispInfo()
+{
+    stringstream ss;
+    ss << "Name : ";
+    ss << name;
+    ss << "; Age : ";
+    ss << age;
+    return ss.str();
+}
+======================================
+
+#########################
+The "this" keyword
+#########################
+
+- The "this" keyword    
+    - "this" refers to the variables of the class.
+    - "this" is a variable which contains the memory location of the each individual object we create.
+    
+============================
+
+// Constructor_parameter.cpp
+#include <iostream>
+#include "Person.h"
+
+using namespace std;
+
+int main()
+{
+    Person p1;                              // object creation
+    Person p2("Chandra", 35);              // object creation with parameters
+    Person p3("Balure", 55);
+    
+    cout << p1.dispInfo() << endl;
+    cout << p2.dispInfo() << "; memory address of p2 is: " << &p2 << endl;
+    cout << p3.dispInfo() << "; memory address of p3 is: " << &p3 << endl;
+    
+    return 0;
+}
+==============================
+
+// Person.h        // contains only the template (or prototype)
+#ifndef PERSON_H_
+#define PERSON_H_
+
+#include <iostream>         // #include <string.h> is included in <iostream>
+using namespace std;
+
+class Person
+{
+    private:
+        string name;
+        int age;
+    public:
+        Person();       // constructor
+        Person(string newName, int newAge);     // constructor overloading
+        Person(string name, int age);           // constructor overloading with same variable name as private variables.
+        string dispInfo();
+};
+
+#endif // PERSON_H_
+==============================
+
+// Person.cpp      // contains the definitions of template (or prototype)
+#include <iostream>
+#include <sstream>
+#include "Person.h"
+
+using namespace std;
+
+void Person::Person()       // constructor definition
+{
+    name = "";
+    age = 0;
+}
+
+Person::Person(string name, int age)
+{
+    this->name = name;      // "this" is associated with the object created, and its stores the mem add of the obj.
+    this->age = age;
+    
+    cout << "Memroy address of this ptr is: " << this << endl;     // it prints the mem addr of p2, p3, and p4 obj.
+}
+string Person::dispInfo()
+{
+    stringstream ss;
+    ss << "Name : ";
+    ss << name;
+    ss << "; Age : ";
+    ss << age;
+    return ss.str();
+}
+======================================
+
+#########################
+Constructor Initialization Lists
+#########################
+
+- Instead of initializing the class members inside the constructor, we can also initialize the class members while defining the constructors.
+- We can also move the small definition code inside constructors from .cpp to .h file.
+- This concent DOES NOT apply to set() and get() methods.
+
+#include <iostream>
+#include <stdio.h>
+#include "Person.h"
+
+using namespace std;
+
+int main()
+{
+    Person p1;
+    Person p2("chandra", 36);
+    Person p3("shaker", 46);
+    cout << p1.dispinfo() << endl;
+    cout << p2.dispinfo() << endl;
+    cout << p3.dispinfo() << endl;
+    return 0;
+}
+
+==============================
+
+// Person.h        // contains only the template (or prototype)
+#ifndef PERSON_H_
+#define PERSON_H_
+
+#include <iostream>         // #include <string.h> is included in <iostream>
+using namespace std;
+
+class Person
+{
+    private:
+        string name;
+        int age;
+    public:
+        Person() : name("unnamed"), age(0) {};                      // constructor with its definition for initializing class members.
+        Person(string name, int age) : name(name), age(age) {};     // constructor overloading with same variable name as private variables, but it has initialization list
+        string dispInfo();
+};
+
+#endif // PERSON_H_
+==============================
+
+// Person.cpp      // contains the definitions of template (or prototype)
+#include <iostream>
+#include <sstream>
+#include "Person.h"
+
+using namespace std;
+
+// void Person::Person() : name("unnamed"), age(0)       // constructor definition can be moved to .h file.
+// {
+// }
+
+// Person::Person(string name, int age) : name(name), age(age) // constructor definition can be moved to .h file.
+// {
+// }
+
+string Person::dispInfo()
+{
+    stringstream ss;
+    ss << "Name : ";
+    ss << name;
+    ss << "; Age : ";
+    ss << age;
+    return ss.str();
+}
+======================================
+
+##############################################################################
+
+#########################
+Pointers
+#########################
+
+- Pointers store the address of a variable, any other data-types.
+- Call-by-value
+- Call-by-reference     
+
+#include <iostream>
+
+double dManipulte(double);
+
+using namespace std;
+
+void dManipulate(double dd)
+{
+    cout << "2. value of double in manipulate = " << dd << endl;
+    dd = 25.123;
+    cout << "3. value of double in manipulate = " << dd << endl;
+}
+
+int main()
+{
+    int num = 10;
+    int* pnum = &num;
+    cout << "num value = " << num << endl;
+    cout << "pnum value of address = " << pnum << endl;
+    cout << "pnum pointing to = " << *pnum << endl;
+    
+    cout << "==============================" << endl;
+    
+    double d = 123.4;
+    double* pd = &d;
+    cout << "1. value of double = " << d << endl;
+    dManipulate(d);                          // call by value
+    cout << "4. value of double = " << d << endl;
+    return 0;
+}
+
+######## call by reference
+
+#include <iostream>
+
+double dManipulte(double);
+
+using namespace std;
+
+void dManipulate(double* dd)           
+{
+    cout << "2. value of double in manipulate = " << *dd << endl;
+    *dd = 25.123;
+    cout << "3. value of double in manipulate = " << *dd << endl;
+}
+
+int main()
+{
+    int num = 10;
+    int* pnum = &num;                     
+    cout << "num value = " << num << endl;
+    cout << "pnum value of address = " << pnum << endl;
+    cout << "pnum pointing to = " << *pnum << endl;
+    
+    cout << "==============================" << endl;
+    
+    double d = 123.4;
+    double* pd = &d;
+    cout << "1. value of double = " << d << endl;
+    dManipulate(pd);                          // call by reference, pass the address.
+    cout << "4. value of double = " << d << endl;
+    return 0;
+}
+
+#########################
+Arithmatic
+#########################
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    double value1 = 7/2;        // outputs: 3
+    double value2 = 7.0/2;      // outputs: 3.5
+    
+    int value3 = 15/2+4*5;      // cpp find the operator precedence automatically.
+    int value4 = 12%5;          // outputs: 2, it gives the remainder of the division operation.
+}
+########################### convert seconds to days, hours, minutes, and seconds.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+	int sec = 86485;  //3600, 3800, 86400
+    
+	int seconds = sec%(60);
+    int minutes = sec/(60);  
+    if (minutes>=60)
+    	minutes = minutes%60;
+	int hours = sec/(60*60);
+    if (hours>=24)
+    	hours = hours%24;
+	int days = sec/(60*60*24);
+	if (days>=30)
+    	days = days%30;
+
+	cout << "sec = " << sec << endl;
+	cout << "seconds = " << seconds << endl;
+    cout << "minutes = " << minutes << endl;
+    cout << "hours = " << hours << endl;
+    cout << "days = " << days << endl;
+
+    return 0;
+}
+
+
+#########################
+Pointers and arrays
+#########################
+
+- Its easy to naviate through array using pointers.
+- Incrementing/decrementing pointers means incrementing/decrementing to its next element in the array.
+- Pointer initializing to an array is by assigning the array name directly.
+    - array name itself means that it refers to the first element in the array.
+    
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+int main()
+{
+
+	string arr[] = {"one", "two", "three"};
+    int len = sizeof(arr) / sizeof(string);
+    cout << "Length = " << len << endl;
+    
+    for (int i = 0; i < len; i++)
+    {
+    	cout << arr[i] << " ";
+    }
+    cout << endl;
+    
+    string* parr = arr;
+    for (int i = 0; i < len; i++)
+    {
+    	cout << *parr << " ";
+        parr++;
+    }
+    cout << endl;
+    
+	string* pfirst = arr;     // or &arr[0]
+    string* pend = &arr[len-1];
+    cout << "pointer to first element = " << *pfirst << endl;
+    cout << "pointer to end element = " << *pend << endl;
+    
+    while(true)
+    {
+    	cout << *pfirst << " ";
+        if (pfirst == pend)
+        	break;
+        pfirst++;
+    }
+	cout << endl;
+	return 0;
+}
+
+#########################
+Pointer arithmatic
+#########################
+
+- We can do arithmatic on pointers.
+- Create an array of strings.
+    - assign string pointer with the array (by default it will point to first element in array)
+    - assigning FIRST ELEMENT of array to the pointer can be done with & sign.
+    - assigning OTHER ELEMENT of array to the pointer is done with & sign.
+    - De-reference the pointer to print the value pointed by the pointer.
+- The arithmatic should always lead to the valid location in the array.
+- INCREMENT: incrementing the pointer will point to the next element in the array.
+- DECREMENT: decrementing the pointer will point to the previous element in the array.
+- COMPARE: just use the pointer variable only. No * or & is required.
+- SUBTRACT: pStart = arr; pEnd = &arr[N]; nElements = pEnd - pStart;
+
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+int main()
+{
+	const int N = 5;
+    //N = 9;                // throws error, if declared as const int.
+	string arr[N] = {"one", "two", "three", "four", "five"};
+    int len = sizeof(arr) / sizeof(string);
+    cout << "Length = " << len << endl;
+    
+    string *parr = arr;
+    cout << *parr << endl;
+    parr = parr + 1;   // parr++, or parr+=1  // move forward by 1 (the count mentioned)
+    cout << *parr << endl;
+    parr = parr + 3;   
+    cout << *parr << endl;
+    parr = parr - 2;  
+    cout << *parr << endl;
+    
+    
+    // reset pointer to the start
+	parr = arr;
+    string *pend = &arr[N];
+
+    while(parr != pend)
+    {
+    	cout << *parr << " ";
+		parr++;
+    }
+    
+    // reset pointer to the start
+	parr = arr;
+    parr = parr + N/2;
+    cout << endl << "Mid value  = " << *parr << endl;
+	return 0;
+}
+
+#########################
+Char array
+#########################
+
+- string text = "hello"                 // length of text is 5
+- char text[] = "hello";                // length of text is 6
+- char text[] = {'h','e','l','l','o'};  // length of text is 5
+- Array of char starts from index 0, and ends on NULL (0) character.
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	//string text = "Hello";
+    char text[] = "Hello";
+    //char text[] = {'h', 'e', 'l', 'l', 'o'};
+    cout << "Text = " << text << endl;
+    cout << "Size = " << sizeof(text) << endl;
+    for (int i = 0; i<sizeof(text); i++)
+    {
+    	cout << "Index = " << i << ", and content = " << int(text[i]) << endl;
+    }
+    
+    int k = 0;
+    while(true)
+    {
+    	if (text[k] == NULL)    // NULL or 0, both are same
+        	break;
+    	cout<< k << ": " << text[k] << endl;
+        k++;
+    }
+    cout << k << ": " << text[k] << "Null (0) at this location" << endl;
+    return 0;
+}
+
+#########################
+Reversing a string
+#########################
+
+- Reverse WITHOUT FOR loop.
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    char text[] = "Hello";		// 5
+    cout << "Text = " << text << endl;
+    int len = sizeof(text)-1;		// 6-1 = 5
+    cout << "Len = " << len << endl;
+    
+    char *pStart = &text[0];			// point to index 0
+    char *pEnd = &text[0] + len -1; 	// point to index 4
+    
+    while (pStart < pEnd)
+    {
+    	int temp;
+        temp = *pStart;
+        *pStart = *pEnd;
+        *pEnd = temp;
+        pStart++;
+        pEnd--;
+    }
+    cout << "Text Reversed = " << text << endl;
+    return 0;
+}
+
+#########################
+References in c++
+#########################
+
+- A reference to any variable is just an alias.
+- It does not get stored in memory.
+- It only acts as synonym to another variable.
+- It is more useful in scenarios where the function changes something and we dont want to return it.
+
+#include <iostream>
+
+using namespace std;
+
+void changeSomething(double &);
+
+void changeSomething(double &value)
+{
+	value = 111.22;
+}
+
+int main()
+{
+    int num1 = 10;
+    int num2 = num1;	// num2 is not a reference
+    int &num3 = num1;	// num3 is a reference to num1
+    cout << num1 << ", " << num2 << ", " << num3 << endl;
+    num3 = 20;
+	cout << num1 << ", " << num2 << ", " << num3 << endl;
+    num2 = num1;	
+	cout << num1 << ", " << num2 << ", " << num3 << endl;
+    
+    double value = 222.33;
+    cout << "Before = " << value << endl;
+    changeSomething(value);
+    cout << "After = " << value << endl;
+    return 0;
+}
+
+#########################
+The "const" keyword
+#########################
+
+- "const" keyword is used to avoid changing the value.
+- "const" can be used for variable, or a function using the variable.
+
+#include <iostream>
+
+using namespace std;
+
+class Animal
+{
+	private:
+    	string name;
+    public:
+    	void setName(string);
+      void display() const;	// "const" should be used at declaration and definition both.
+};
+void Animal::setName(string name)
+{
+	this->name = name;
+}
+void Animal::display() const
+{
+	//name = "chandra"; 		// cannot do, as function is declared as "const"
+	cout << "name = " << name << endl;
+}
+
+int main()
+{
+    const double num = 11.22;
+    cout << "num = " << num << endl;
+    //num = 22.33;                  // cannot do, as variable is declared as "const"
+    cout << "num = " << num << endl;
+    
+    Animal a1;
+    a1.setName("Bingo");
+    a1.display();
+    
+    return 0;
+}
+
+######################## pointer to constant, and constant pointer
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int num1 = 11;
+    cout << "num1 = " << num1 << endl;
+    int *pNum = &num1;         // pointer to variable.
+    cout << "pNum addr = " << pNum << ", " << "pNum value = " << *pNum << endl;
+    
+    //////////////////// ptr is a pointer to constant int; // int const *ptr;
+	const int num2 = 22;		// "const" integer
+    cout << "num2 = " << num2 << endl;
+	int const *pNum2 = &num2;	// pointer to "const int" // read reverse
+	cout << "pNum2 addr = " << pNum2 << ", " << "pNum2 value = " << *pNum2 << endl;
+    
+    //num2 = 222;       // not allowed;
+    //*pNum2 = *pNum2 + 2; // not allowed;
+	cout << "pNum2 addr = " << pNum2 << ", " << "pNum2 value = " << *pNum2 << endl;
+	
+	int const num3 = 33;
+    pNum2 = &num3;			// allowed; ptr points to new "const int" variable.
+	cout << "pNum2 addr = " << pNum2 << ", " << "pNum2 value = " << *pNum2 << endl;
+    
+    //////////////////// ptr is a constant pointer to int; // int *const ptr;
+	cout << "\n\n\n";
+    int num4 = 44;		// "const" pointer
+    cout << "num4 = " << num4 << endl;
+
+	int *const pNum4 = &num4;	// "const pointer" to int // read reverse
+	cout << "pNum4 addr = " << pNum4 << ", " << "pNum4 value = " << *pNum4 << endl;
+    
+    int num5 = 55;
+    //pNum4 = &num5;		// not allowed; *const ptr* pointing to new variable;
+    num4 = 444;			// allowed; value of variable can be changed;
+	cout << "pNum4 addr = " << pNum4 << ", " << "pNum4 value = " << *pNum4 << endl;
+
+    return 0;
+}
+
+#########################
+copy constructor
+#########################
+
+#include <iostream>
+using namespace std;
+
+class Animal
+{
+	private:
+    	string name;
+    public:
+      Animal();
+      Animal(const Animal& other);
+    	void setName(string);
+      void display() const;	// "const" should be used at declaration and definition both.
+};
+Animal::Animal()
+{
+    cout << "Animal object created..." << endl;
+}
+Animal::Animal(const Animal& other)		// copy constructor definition; or :name(other.name)
+{
+	name = other.name;
+    cout << "Animal object created from copying ..." << endl;
+}
+void Animal::setName(string name)
+{
+	this->name = name;
+}
+void Animal::display() const
+{
+	//name = "chandra"; 		// cannot do, as function is declared as "const"
+	cout << "name = " << name << endl;
+}
+
+int main()
+{
+	Animal a1;
+  a1.setName("Dog1");
+  a1.display();
+  
+  Animal a2 = a1;  //copy construtor; contructor() called only once. or Animal a2(a1)
+  a2.setName("Dog2");
+  a2.display();
+  
+  Animal a3(a1);	//copy construtor directly.
+  a3.display();
+	return 0;
+}
+
+#########################
+"new" operator
+#########################
+
+- Alternate way to create an object is by using the keyword "NEW"
+- The object created has to be explicitely destroyed by calling "DELETE".
+
+#include <iostream>
+using namespace std;
+
+class Animal
+{
+	private:
+    	string name;
+    public:
+    	Animal();
+      Animal(Animal &);
+      ~Animal();
+      void setName(string name);
+      void display();
+};
+
+Animal::Animal()
+{
+	cout << "Animal created..." << endl;
+}
+
+Animal::Animal(Animal &other)	// copy constructor; 	// or name(other.name)
+{
+	name = other.name;
+	cout << "Animal created by copying..." << endl;
+}
+
+Animal::~Animal()
+{
+	cout << "Animal destroyed..." << endl;
+}
+
+void Animal::setName(string name)
+{
+	this->name = name;
+}
+
+void Animal::display()
+{
+	cout << "The name is = " << name << endl;
+}
+
+int main()
+{
+	Animal a1;
+    a1.setName("dog1");
+    Animal a2(a1);	// copy constructor called.	// or Animal a2 = a1;	// the copying should be done at the time of object creation.
+    //a2.setName("dog2");
+    //a2 = a1;
+    
+    a1.display();
+    a2.display();
+    
+    ///////////////////////////////////////////
+    
+    Animal *pAnimal = new Animal();	// we must always destroy with using NEW
+    pAnimal->setName("dog3");	
+    (*pAnimal).display();	// or (*pAnimal).display();
+    delete pAnimal;		// we must always destroy with using NEW
+    
+	return 0;
+}
+
+#########################
+Returning object from functions
+#########################
+
+- "new" can be used with any datatypes.
+- "new" can also be used to create memory for arrays of primitive datatypes.
+- But always use "delete" at the end.
+- e.g. int *pInt = new int;
+- e.g. Animal *pAnimal = new Animal();
+
+#include <iostream>
+using namespace std;
+
+class Animal
+{
+	private:
+    	string name;
+    public:
+    	Animal();			// constructor
+      Animal(const Animal &);	// copy constructor
+      ~Animal();			// destructor
+    	void setName(string name);
+      void display();
+};
+
+Animal::Animal()
+{
+	cout << "Animal created..." << endl;
+}
+
+Animal::Animal(const Animal &other)	// copy constructor; 	// or name(other.name)
+{
+	name = other.name;
+	cout << "Animal created by copying..." << endl;
+}
+
+Animal::~Animal()
+{
+	cout << "Animal destroyed..." << endl;
+}
+
+void Animal::setName(string name)
+{
+	this->name = name;
+}
+
+void Animal::display()
+{
+	cout << "The name is = " << name << endl;
+}
+
+int main()
+{
+	int *pInt = new int;
+    *pInt = 10;
+    cout << "pInt = " << *pInt << endl;
+    
+    Animal *pAnimal = new Animal();
+    delete pAnimal;
+    
+    char *pChar = new char[100];
+    delete [] pChar;
+    
+    Animal *pAnimalArr = new Animal[10];	// creating array of objects.
+    pAnimalArr[8].setName("Dog123");		// use . instead of ->
+    pAnimalArr[8].display();
+    delete [] pAnimalArr;					// use []; //deleting all array of objects.
+    
+    int N = 26;
+    Animal *pAnimalArrN = new Animal[N];
+    char c = 'a';
+    for (int i = 0; i < N; i++)
+    {
+    	string NAME(5, c);
+    	pAnimalArrN[i].setName(NAME);
+        pAnimalArrN[i].display();
+        c++;
+    }
+    delete [] pAnimalArrN;
+    
+	return 0;
+}
+
+#########################
+Arrays and Functions
+#########################
+
+- we can pass array to functions.
+- Passing array to a function would just required the array name only.
+- We can pass by value, or pass by pointers.
+  - e.g. 
+  - void show1(int len, string texts[3])
+  - void show2(int len,  string *ptexts)
+  - void show3(string (&texts)[3])
+  
+#include <iostream>
+#include <fstream>
+#include <ostream>
+#include <istream>
+#include <string.h>
+
+using namespace std;
+void show1(int , string *);
+
+void show1(int len, string texts[3])
+{
+  cout << "Addr of texts = " << texts << endl;
+  //int len = sizeof(texts) / sizeof(string);
+  for (int i = 0; i < len; i++)
+  {
+    std::cout << "texts[" << i << "] = " << texts << std::endl; // using texts[i] giving error for <<
+    //texts++;
+  }
+}
+
+void show2(int len,  string *ptexts)
+{
+    cout << "Addr of texts = " << ptexts << endl;
+    //int len = sizeof(texts) / sizeof(string);
+    for (int i = 0; i < len; i++)
+    {
+      std::cout << "texts[" << i << "] = " << ptexts << std::endl;  // using *ptexts giving error for <<
+      ptexts++;
+    }
+}
+
+void show3(string (&texts)[3])
+{
+  cout << "Addr of texts = " << texts << endl;
+  int len = sizeof(texts) / sizeof(string);
+  for (int i = 0; i < len; i++)
+  {
+    std::cout << "texts[" << i << "] = " << texts << std::endl;   // using texts[i] giving error for <<
+    //texts++;
+  }
+}
+
+char * getMem()
+{
+  char *pMem = new char[100];
+  cout << "Alloted char 100" << endl;
+  return pMem;
+}
+
+void delMem(char *pMem)
+{
+  cout << "Deleted char 100" << endl;
+  delete pMem;
+}
+
+int main()
+{
+    string texts[] = { "Apple", "Banana", "Cherry" };
+    int len = sizeof(texts) / sizeof(string); // sizeof(texts) returns size of pointer.
+    //show1(len, texts);
+    //show2(len, texts);
+    //show3(texts);
+
+    char *pMem = getMem();
+    delMem(pMem);
+    return 0;
+}
+
+#########################
+Namespaces
+#########################
+
+- Namespaces are a way of avoiding conflicts between classes and variables (global var) having same name.
+- What if we want to have another class/variable with the same name which already exist.
+  - Use namespaces to define a class/variable with same name.
+  
+#include <iostream>
+#include "cat.h"		// include cat.h file
+#include "animals.h"	// include animals.h file, so that the namespace is visible.
+
+using namespace std;
+//using namespace csbcat;
+//using namespace csbani;
+
+
+int main() {
+  //Cat c1;		// this will throw ERROR, because we have not mentioned namespace
+
+  csbcat::Cat c1;   // we can call the specific class using the namespace, avoids writing namespace code line.
+  c1.speak();
+
+  csbani::Cat c2;    // we can call the specific class using the namespace, avoids writing namespace code line.
+  c2.speak();
+
+  cout << csbcat::CATNAME << endl;    // for variable with same name
+  cout << csbani::CATNAME << endl;    // for variable with same name
+  return 0;
+}
+
+//////////////////////// cat.h
+#ifndef __CAT_H__   // include guards
+#define __CAT_H__
+
+//#pragma once    // include guards, alternative to #ifndef
+
+#include <iostream>
+
+namespace csbcat
+{
+  //string CATNAME = "csbcat_catname";  // for variable with same name
+  class Cat
+  {
+    public:
+      Cat();
+      ~Cat();
+      void speak();
+  };
+}
+
+#endif
+
+//////////////////////// cat.cpp
+#include <iostream>		// include iostream for cout and cin functions.
+#include "Cat.h"
+
+using namespace std;
+
+namespace csbcat
+{
+  Cat::Cat()
+  {
+    cout << "Object created..." << endl;
+  }
+
+  Cat::~Cat()
+  {
+    cout << "Object destroyed..." << endl;
+  }
+
+  void Cat::speak()
+  {
+    cout << "Meowwwww..." << endl;
+  }
+}
+
+/////////////////////////// animals.h
+#ifndef __ANIMALS_H__     // include guards
+#define __ANIMALS_H__
+
+//#pragma once        // include guards, alternative to #ifndef
+
+#include <iostream>
+
+namespace csbani
+{
+  //string CATNAME = "csbani_catname";  // for variable with same name
+  class Cat
+  {
+  public:
+    Cat();
+    ~Cat();
+    void speak();
+  };
+}
+
+#endif
+
+////////////////////////////// animals.cpp
+#include <iostream>
+#include "animals.h"
+
+using namespace std;
+
+namespace csbani
+{
+  Cat::Cat()
+  {
+    cout << "Object created..." << endl;
+  }
+
+  Cat::~Cat()
+  {
+    cout << "Object destroyed..." << endl;
+  }
+
+  void Cat::speak()
+  {
+    cout << "Ssssssss..." << endl;
+  }
+}
+
+#########################
+Inheritence
+#########################
+
+- Sometimes, an already existing class can share its methods/variables with other class.
+- The other class can have some extra information.
+- The super class (BASE class) -  class whose properties are inherited.
+- The sub class (DERIVED class) - class which inherits the properties of another class.
+    
+#include <iostream>
+
+using namespace std;
+
+class Animal
+{
+	public:
+    	void speak() { cout << "gurrr..." << endl; }
+};
+class Cat: public Animal	// Cat inherit Animal PUBLICALLY
+{
+	public:
+    	void jump() { cout << "jumping..." << endl; }
+};
+class Tiger: public Cat		// Tiger inherit Cat PUBLICALLY
+{	
+	public:
+    	void attack() { cout << "attacking..." << endl; }
+}; 
+
+int main()
+{
+	Animal a;
+    a.speak();
+    
+    Cat c;
+    c.speak();	// inherited method
+    c.jump();
+    
+    Tiger t;
+    t.speak();	// inherited method
+    t.jump();	// inherited method
+    t.attack();
+    
+	return 0;
+}
+
+#########################
+Inheritence: Private, Public, Protected
+#########################
+ 
+- PRIVATELY inherited:
+    - PRIVATE member inaccessible
+    - PUBLIC members become PRIVATE
+    - PROTECTED members become PRIVATE
+- PUBLICALY inherited:
+    - PRIVATE members inaccessible
+    - PUBLIC members become PUBLIC
+    - PROTECTED members become PROTECTED
+- PROTECTEDLY inherited:
+    - PRIVATE members inaccessible
+    - PUBLIC members become PROTECTED
+    - PROTECTED members become PROTECTED
+    
+#include <iostream>
+
+using namespace std;
+
+class A
+{
+	private:
+    	int x;
+    public:
+    	int y;
+    protected:
+    	int z;
+};
+class B: private A		// private by default.
+{
+	// x is not accessible
+    // y is private
+    // z is private
+};
+class C: public A	
+{	
+	// x is not accessible
+    // y is public
+    // z is protected
+}; 
+class D: protected A	
+{	
+	// x is not accessible
+    // y is protected
+    // z is protected
+};
+
+int main()
+{
+	A a;
+    B b;
+    C c;
+    D d;
+    
+	return 0;
+}
+
+#########################
+Encapsulation
+#########################
+
+- It is a way to hide the information from the world.
+- Encapsulation is done by keeping the data in PRIVATE access mode.
+    - All the PRIVATE methods/variables are accessible by PUBLIC methods.
+    - Hence, only the PUBLIC methods are exposed to the world.
+    
+#include <iostream>
+
+using namespace std;
+
+class A
+{
+	private:
+    	int x;
+        int getVal() { return x; }
+    public:
+    	int y;
+        void setVal(int val) { x = val; }
+        void info() { cout << getVal() << endl; }	// getVal() can only be called by info()
+};
+
+int main()
+{
+	A a;
+    a.setVal(10);
+    //cout << a.getVal() << endl;	// getVal() cannot be accessed outside.
+    a.info();
+    
+	return 0;
+}
+
+#########################
+Constructor Inheritance
+#########################
+
+- Bottom line is, constructure CANNOT be inherited.
+- But, the contructors can be called when object is created.
+    - The constructor of all SUPER-CLASS will be called when the SUB-CLASS object is created.
+- We can set in the derived-class which contructor of super-class should be called.
+
+#include <iostream>
+
+using namespace std;
+
+class Machine
+{
+	private:
+    	int id;
+    public:
+    	Machine() { id = 0; cout << "machine constructor..." << endl; }
+      Machine(int newid) { id = newid; cout << "machine param constructor..." << endl; }
+      void info() { cout << "id = " << id << endl; }
+};
+class Vehicle: public Machine
+{
+    public:
+    	Vehicle() { cout << "vehicle constructor..." << endl; }
+      //Vehicle(int newid) { id = newid; cout << "vehicle param constructor..." << endl; }     // ERROR, id is PRIVATE to Machine class.
+      Vehicle(int newid):Machine(newid) { cout << "vehicle param constructor..." << endl; }   // Vehicle constructor calls Machine constructor
+};
+
+class Car: public Vehicle
+{
+    public:
+    	Car():Vehicle(999) { cout << "car constructor..." << endl; }	// car constructor calls Vehicle param constructor
+};
+
+int main()
+{
+  //Machine machine;		// object calls constructor
+  //Machine machine(123);	// object calls parameterized contructor
+  //Vehicle vehicle;
+  //Vehicle vehicle(12345);
+  Car car;
+    
+  car.info();
+    
+	return 0;
+}
+    
+#########################
+2's Complement: Odds and Evens
+#########################
+
+- How the integers are stored in a memory.
+- The signed integers are stored in three ways:
+    - MSB representing sign of a number.
+    - 1's compliment
+    - 2's compliment
+    
+#########################
+"static" keyword
+#########################
+
+- If a variable is declared as "static", then only one version of the variable is shared among all the objects of a class.
+- We need to initialize it somewhere else.
+
+- We can have "static" methods:
+    - "static" method only access "static" variables.
+    - "static" method cannot access instance (non-static) variables.
+- We can define constants using "static" keyword
+    - "static" "const" can be shared by all objects, but cannot be modified.
+    
+#include <iostream>
+
+using namespace std;
+
+// .h header file
+class Test
+{
+	public:
+    	static int const MAX = 99;	// intilizatin of "const" must be done right here.
+	private:
+    	int id;
+    	static int count;	// "static" variable // initializatin cannot be done here.
+    public:
+    	Test() { id = ++count; }	// "static" count is used to set id.
+        int getId() { return id; }
+    	static void info() { cout << count << endl; }	// "static" method
+};
+
+// .cpp source file
+int Test::count = 111;	// "static" variable initialized
+
+int main()
+{
+	//cout << Test::count << endl;	// access "static" variable (if in public) using class, NOT object
+    Test::info();	// "static" method called
+    
+    Test test1;	// object created.
+    cout << "object 1 id = " << test1.getId() << endl;
+    test1.info();	// object calling method, using same "count" variable.
+    
+    Test test2;	
+    cout << "object 2 id = " << test2.getId() << endl;
+    test2.info();
+    
+    cout << Test::MAX << endl;
+	return 0;
+}
+
+#########################
+Polymorphism
+#########################
+
+- Having many forms.
+- e.g. a person can be a SON, BROTHER, HUSBAND, FATHER, etc.
+
+#include <iostream>
+
+using namespace std;
+
+class Parent
+{
+	public:
+    	virtual void print() { cout << "Parent print()" << endl; } // "virtual" keyword
+    	void show() { cout << "Parent show()" << endl; } 
+      virtual ~Parent() { };  // make destructors "virtual"
+};
+
+class Child: public Parent
+{
+    void print() { cout << "Child print()" << endl; }
+    void show() { cout << "Child show()" << endl; } 
+    virtual ~Child() { };  // make destructors "virtual"
+};
+
+int main()
+{
+	Parent p;
+   	Child c;
+    
+    Parent *par = new Child;
+    par->print();	// calls info() of Child class if defined as "virtual"
+    par->show();	// calls info() of Parent class if not defined as "virtual"
+    return 0;
+}
+
+#########################
+Polymorphism (operator overloading)
+#########################
+
+- The operator can be used to perform same operation on different data types.
+
+#include <iostream>
+
+using namespace std;
+
+class Complex
+{
+	private:
+    	int real;
+      int img;
+	public:
+    	Complex(int r=0, int i=0) { real = r; img = i; }
+      Complex operator+(Complex const& obj)
+      {
+        Complex res;
+          res.real = real + obj.real;
+          res.img = img + obj.img;
+          return res;
+      }
+    	void print() { cout << "Real = " << real << " and Img = " << img << endl; } 
+};
+
+int main()
+{
+	Complex c1(2, 3), c2(4, 5);
+  Complex c3 = c1 + c2;
+  c3.print();
+	return 0;
+}
