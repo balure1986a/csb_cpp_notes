@@ -1,5 +1,5 @@
 # C++ Notes: learning from the outside world
-This repo contains notes of the udemy courses taken by me. These courses were either free or paid.
+C++ notes, taken from online courses.
 
 ```
 This is the code block
