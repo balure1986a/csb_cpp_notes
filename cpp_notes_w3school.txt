@@ -1,0 +1,1011 @@
+CPP Notes
+============
+
+Link: https://www.w3schools.com/CPP/default.asp
+
+C++ Introduction
+=====================
+- cpp is a cross platform language.
+- cpp is used to create high performance applications.
+- cpp gives programmers a high level of control over system resources and memory.
+- cpp was updated 3 major times
+	- 2011 = c++11
+	- 2014 = c++14
+	- 2017 = c++17
+	
+- cpp is worlds most popular programming language.
+- cpp found in OS, GUI, and embedded systems.
+- cpp is OOPs language which gives a clear strcture to programs, and allow code reuse, and lower dev cost.
+- cpp is fun and easy to learn.
+
+
+C++ Getting Started
+=====================
+- Need two things:
+	1. Text editor (notepad)
+	2. compiler (GCC)
+- Popular IDEs are:
+	1. code::blocks
+	2. eclipse
+	3. visual studio
+- e.g.
+#include <iostream>
+using namespace std;
+int main() 
+{
+  cout << "Hello World!";
+  return 0;
+}
+
+- #include<iostream> is a header file library, that lets us work with input and output objects.
+- using namespace std; means we can use names of variables and objects from standard library.
+- int main() is called function.
+- Any code that appreas between {} will be executed.
+- cout = it is an object used with insertion operator << to output/print text.
+- every statement ends with a semicolon.
+- complier ignores white spaces.
+- return 0 ends the main function.
+- we can omit the usning namespace std; statement.
+
+- e.g.
+#include <iostream>
+int main() 
+{
+  std::cout << "Hello World!";
+  return 0;
+}
+
+C++ Output
+==================
+- to insert a new line, use \n character.
+- another way to insert new line, is the use of endl manipulator.
+- both \n and endl are used to break lines.
+
+C++ Comments
+===============
+- comments are used to make the code more readable.
+- comments are single-lined or multi-lined.
+- single line comment: // is used.
+- multi line comment: /* and */ is used.
+
+C++ Variables
+================
+- Variables are containers for storing the data values.
+- C++ has different types of variables
+	- int, e.g. 123, -123
+	- double, e.g. 19.99, -123.456
+	- character, e.g. 'a', 'A'
+	- string, e.g. "Hello World"
+	- bool, e.g. True, False
+- Declaring the variables, you must specify the type and assign it a value.
+	- e.g. type var = value;
+	- int myNum = 15;
+	- cout << myNum;
+- Declaring variable, without assigning the value.
+	- e.g. int myNum;
+	- myNum = 15;
+	- cout << myNum;
+- If a new value is assigned to a varible, it overwrite the previous value.
+	- e.g. int myNum = 10;
+	- myNum = 15;
+	- cout << myNum;
+- Demonstration of other data types:
+	- int myIntNum = 10;
+	- double myDoubleNum = 5.99;
+	- char myChar = 'D';
+	- string myString = "Hello";
+	- bool myBoolean = true;
+- Display the variables
+	- int myAge = 35;
+	- cout << "My Age is : " << myAge;
+	- cout << "I am " << myAge << " years old.";
+	
+Declare Multiple Variables.
+=================================
+- To declare more than one variables of same data type, use comma seperated list.
+	- int x = 5, y = 6, z = 7;
+	- cout << x+y+z;
+
+Identifiers
+=================
+- All c++ variables must be identified with unique names.
+- Unique names are called identifiers.
+- Identifiers can be short names (x, y, etc.) or long names (myNum, findTotalSum, etc.)
+- Always use descriptive names to create understandable and maintainable code.
+- Names can contain Letters, Digits, and Underscore.
+- Names must begin with a Letter or Underscore.
+- Names are case sensitive.
+- Names cannot contain whitespaces and special characters (exclamation, hash, percentage, etc)
+- Names cannot be reserved keywords.
+
+C++ Constants
+================
+- Do not allow others to override existing variable values.
+- Use CONST keyword
+- Means, unchangeable and read only.
+- We must declare the variable as constant which are unlikely to change. (e.g. MinInHour = 60).
+
+C++ User Input
+==============
+- cin is predefined variable that reads data from keyboard with extraction operator (<<)
+
+C++ Data Types
+=================
+- A variable in c++ must be a specified data type.
+- INT, FLOAT, DOUBLE, CHAR, BOOL, STRING
+- Numeric data types - INT, FLOAT, DOUBLE.
+- Boolean data type - BOOL (e.g. with value "true" and "false")
+- Char data type - CHAR (e.g. char A = 65)
+- String data type - STRING (Header file <string>)
+
+C++ Operators
+==============
+- ARITHMATIC - operator (+, -, *, /, %, ++, --) 
+- ASSIGNMENT - operator (=, +=, -=, *=, /=, %=, &=, |=, ^=, >>=, <<=)
+- COMPARISON - operator (==, !=, >, <, >=, <=)
+- LOGICAL - operator (&&, ||, !)
+
+C++ Strings
+===========
+- Use additional header file in source code <string>
+- String variable contains a collection of characters.
+- CONCATENATION - "chandra " + "shaker" = "chandra shaker"
+- APPEND - firstName.append(lastName)
+- NUMBERS and STRINGS - intC = intA + intB; strC = strA + strB;
+- LENGTH - firstName.length()
+- SIZE - firstName.size()	// same as length()
+
+Access Strings
+===============
+- Access characters referring to its index number.
+- Index 0 is the first character, and index 1 is the second character.
+
+User Input STRINGS
+=============
+- cin
+- usage, cin >> firstName;
+- cin considers a SPACE as a terminating character.
+- getline
+- usage, getline(cin, firstName);
+
+C++ Math
+===========
+- max(x, y)
+- usage, cout << max(10, 20);
+- min(x, y)
+- usage, cout << min(10, 20);
+- <cmath> library is required.
+	- sqrt(25)
+	- round(2.6)
+	- log(2)
+- there are many functions to perform mathematical tasks.
+	- ABS, ACOS, ASIN, ATAN, CBRT, CEIL, COS, COSH, EXP, EXPM1, FABS, FDIM, FLOOR, HYPOT, FMA, FMAX, FMIN, FMOD, POW, SIN, SINH, TAN, TANH.
+	
+C++ Boolean
+=============
+- Boolean data type can take values 
+	- True/1/ON or False/0/OFF
+- *bool* keyword is used to declare the boolean variable.
+- It can taken only *true* or *false*
+
+C++ boolean expression
+====================
+- c++ boolean expression returns a boolean value, e.g. 1 or 0.
+- e.g. int x = 10;
+		int y = 9;
+		cout << (x > y);	// returns: 1
+
+C++ conditions
+==============
+If conditions
+==============
+- e.g. if(condition)
+		{
+			some statements
+		}
+- e.g. if(condition)
+		{
+			some statements;
+		}
+		else
+		{
+			some statements;
+		}
+- e.g. if (condition)
+		{ 
+			some statements;
+		}
+		else if (condition2)
+		{
+			some statements;
+		}
+		else
+		{
+			some statements;
+		}
+- Short hand of IF-ELSE is TERNARY operator
+- e.g. variable = (condition) ? (trueExpression) : (falseExpression);
+
+C++ switch
+==========
+- switch statement is to select one of the code blocks.
+- switch statement is evaluated once.
+- value of expression is compared with the value of each case.
+	- if there is a match, the associated block of code is executed.
+- BREAK and DEFAULT are optional.
+- DEFAULT doesnot need a break statement.
+- e.g. switch (expression)
+		{
+			case a:
+				some statements;
+				break;
+			case b:
+				some statements;
+				break;
+			default:
+				some statements;
+		}
+
+C++ while
+===========
+- Code in the loop run over and over again, as long as expression is TRUE.
+- Do not forget to increase the variable in the condition, otherwise the loop will never end.
+- e.g. while (condition)
+		{ 
+			some statements;
+		}
+
+C++ do-while
+============
+- "do-while" is variant of while.
+- The loop execute the code block once.
+- If the while condition is TRUE, the loop repeats.
+- If the while condition is FALSE, the loop executes only once.
+- Do not forget to increase the variable in the condition, otherwise the loop will never end.
+- e.g. do
+		{
+			some statements;
+		}
+		while (condition);
+
+C++ for loop
+=============
+- When we know exactly how many times we want to loop through a block of code.
+- e.g. for (statement1; statement2; statement3)
+		{
+			some statements;
+		}
+- statement1: sets a variable before loop starts.
+- statement2: defines a condition for the loop to run.
+	- If the condition is TRUE, the loop will start over again.
+	- If the condition is FALSE, the loop will end.
+- statement3: increases a value each time the code block has been executed.
+
+C++ break
+===========
+- "Break" is used to jump out of the loop.
+- e.g. for (i = 0; i < 10; i++)
+		{
+			if (i == 4)
+			{
+				break;
+			}
+		}
+- If the value of i == 4, then the for loop exits.
+- The statement after "break" will not be executed.
+
+C++ continue
+============
+- "Continue" statement breaks one iteration.
+- It then continues to the next iteration in the loop.
+- e.g. for (i = 0; i < 10; i++)
+		{
+			if (i == 4)
+			{
+				continue;
+			}
+		}
+- We can use "break" and "continue" in the while loops.
+
+C++ Arrays
+==========
+- Arrays are used to store multiple values in a single variable, instead of declaring seperate variables for each value.
+- To declare array, define a variable data type, specify the name, followed by square brackets, and specify the number of elements.
+- e.g. string name[3] = {"chandra", "shaker", "balure"};
+		cout << name[0] 		% output: "chandra"
+  e.g. int num[3] = {10, 20, 30};
+		cout << num[1];		% output: 	
+- Change the array element, refer the index number.
+  e.g. name[0] = "kantveer"
+- Loop through an array:
+  e.g. string name[4] = {"chandra", "shaker", "kantveer", "balure"};
+		for (i = 0, i < 4; i++)
+		{
+			cout << name[i] << endl;
+		}
+- Omit array size. We can omit the array size while declaring the array variable.
+- It will declare the size as big as the elements that are inserted.
+
+- e.g. string name[] = {"asdf", "sdfg", "dfgh", "fghj", "ghjk", "hjkl"}
+- PROBLEM:
+	- Problem arise when extra space for future is required.
+	- Hence, if the size is specified, the extra space is reserved.
+	
+- Omit elements on declaration:
+- e.g. string name[4];
+		name[0] = "chandra";
+		name[1] = "shaker";
+		
+C++ Reference
+=============
+- Reference variable is a "reference" to a variable.
+- It is created with & operator.
+- We can use the "original" name or the "reference" name to refer to the original name.
+
+- e.g. string food = "meals";		// original
+		string &meal = food;		// reference
+		cout << food				// output: meals
+		cout << meal				// output: meals
+		
+C++ Memory Address
+==================
+- The & is also used to get the memory address of a variable.
+- The memory address is the location of where the variable is stored on the computer.
+- The memory address is in hexadecimal.
+- The results are not always the same.
+
+- e.g. string food = "meals";
+		cout << &food \;		// output: 0x12345678
+		
+C++ Pointers
+============
+- A pointer is a variable which stores the memory address as its values.
+- A pointer is created with * operator.
+- A pointer variable points to a data type of the same type.
+- e.g. string food = "meals";
+		int a = 4;
+		string *ptr1 = &food;
+		int *ptr2 = &a;
+- Three ways to declare pointer variables:
+- e.g. int* ptr1;		// preferred.
+		int *ptr1;
+		int * ptr1;
+		
+C++ Dereference
+===============
+- We used the pointer variable to get the memory address of a variable (using & - called reference operator)
+- WE can also use the pointer to get the value of a variable (using * - called dereference operator)
+- e.g. string food = "meals";
+		string *ptr1 = &food;
+		cout << ptr << endl;
+		cout << *ptr << endl;
+
+C++ Modify Pointers
+===================
+- You can change the pointers value.
+- This will also change the value of the original variable.
+- e.g. string food = "meals"
+		string *ptr1 = &food;
+		cout << food << ", " << *ptr1 << endl;		// old pointer value
+		*ptr1 = "pizza";
+		cout << food << ", " << *ptr1 << endl;		// new pointer value
+		
+================================================================================
+================================================================================
+================================================================================
+
+C++ Functions
+=============
+- A function is a block of code which runs when it is called.
+- We can pass data (known as parameters) into the function.
+- C++ provide some pre-defined functions, e.g. *main()*
+- One can also create their own functions.
+- e.g. void myFunction()	// declaration
+		{
+			statements;		// definition (function body)
+		}
+
+- CALLING A FUNCTION
+=======================
+- e.g. myFunction();
+- A function can be called multiple times.
+- A function will have two parts: declaration and definition
+
+C++ function parameters
+=======================
+- Information can be passed to functions as a parameter.
+- Parameters act as a variable inside the function.
+- There can be many parameters, each parameter is seperated by a comma.
+- When a parameter is passed to the function, it is called ARGUMENT.
+- e.g. void myFunction(string fname)
+		{
+			cout << "The name is: " << fname;
+		}
+		int main()
+		{
+			myFunction("chandra");
+			myFunction("shaker");
+			myFunction("balure");
+			return 0;
+		}
+- Here, *fname* is argument, and "chandra" is parameter.
+
+- DEFAULT PARAMETER VALUE
+=======================
+- You can use default parameter value by using equal sign (=)
+- If we call the function without argument, it uses default value.
+- e.g. void myFunction(string fname = "bbbb")
+		{
+			cout << fname << endl;
+		}
+		int main()
+		{
+			myFunction("aaaa");
+			myFunction();
+			myFunction("cccc")
+			return 0;
+		}
+
+- MULTIPLE PARAMETERS
+=======================
+- Inside function, we can add as many parameters as we want.
+- e.g. void myFunction(string fname, int age)
+		{
+			cout << fname << ", " << age << endl;
+		}
+		int main()
+		{
+			myFunction("chandra", 35);
+			myFunction("someone", 26);
+			return 0;
+		}
+		
+- RETURN KEYWORD
+=======================
+- *void* means, the function should not return any value.
+- If you want the function to return the value, use the DATA TYPE instead of *void*, and use *return* keyword inside the function.
+- e.g. int myFunction(int a, int b)
+		{
+			return a + y;
+		}
+		int main()
+		{
+			cout << myFunction(2, 3) << endl;
+			return 0;
+		}
+- We can also store the result in a variable.
+- e.g. int myFunction(int a, int b)
+		{
+			return a + y;
+		}
+		int main()
+		{
+			res = myFunction(2, 3);
+			cout << res << endl;
+			return 0;
+		}
+		
+- PASS BY REFERENCE
+=======================
+- You need to call by reference when you need to change the value of the arguments.
+- e.g. void swapNum(int &x, int &y)
+		{
+			int z;
+			z = x;
+			x = y;
+			y = z;
+		}
+		int main()
+		{
+			int a = 10, b = 10;
+			cout << "Before" << a << ", " << b;		// output: 10, 20
+			swapNum(a, b);
+			cout << "After" << a << ", " << b;		// output: 20, 10
+			return 0;
+		}
+
+C++ Function Overloading
+=========================
+- Multiple functions can have same name with different parameters.
+- It avoids creating different functions with different types.
+- e.g. int myFuncAddInt(int x, int y)
+		{
+			return x+y;
+		}
+		float myFuncAddFloat(float x, float y)
+		{
+			return x+y;
+		}
+		int main()
+		{
+			int resInt = myFuncAddInt(3, 4);
+			float resFloat = myFuncAddFloat(1.23, 3,45);
+			return 0;
+		}
+- Using same function name:
+- e.g. int myFuncAdd(int x, int y)
+		{
+			return x+y;
+		}
+		int myFuncAdd(float x, float y)
+		{
+			return x+y;
+		}
+		int main()
+		{
+			int resInt = myFuncAdd(3, 4);
+			float resFloat = myFuncAdd(1.23, 3,45);
+			return 0;
+		}
+		
+================================================================================
+================================================================================
+================================================================================
+
+C++ OOPs
+=========
+- Object oriented programming
+- Faster, Clean structure, DRY (Dont Repeat Yourself), maintainable, reusable.
+
+C++ classes and objects
+=======================
+- CLASS: Fruit (CLASS is a template for objects.)
+- OBJECTS: Apple, Banana, Orange, Mango. (OBJECT is an instance of a class.)
+- In real life:
+	- Car is an "object"
+	- Weight and colour are its "attributes"
+	- drive() and brake() are its "methods"
+- Attributes and Methods are basically variables and functions that belongs to the class (also called class members)
+
+- CREATE A CLASS
+================
+- e.g. class myClass
+		{
+			public:
+				int age;
+				string fname;
+		};
+
+- CREATE AN OBJECT
+==================
+- e.g. int main()
+		{
+			myClass obj1;
+			obj1.age = 35;
+			obj1.fname = "chandra";
+			return 0;
+		}
+
+- CREATE MULTIPLE OBJECTS
+=========================
+- e.g. int main()
+		{
+			myClass obj1;
+			obj1.age = 35;
+			obj1.fname = "chandra";
+			
+			myClass obj2;
+			obj2.age = 26;
+			obj2.fname = "someone";
+			return 0;
+		}
+
+C++ class methods
+=================
+- Methods are functions that belongs to the class.
+- Two ways to *define* functions that belongs to a class:
+	- Inside class
+	- Outside class
+- Outside class:
+- e.g. class myClass
+		{
+			public:
+				int myAttribute;
+				void myMethod();
+				void myMethodParam(int a);
+		};	
+		myClass::myMethod()
+		{
+			cout << "something";
+		}
+		myClass::myMethodParam(int x)
+		{
+			cout << x;
+		}
+		int main()
+		{
+			myClass obj1;
+			cout << obj1.myMethod();
+			cout << obj1.myMethodParam(10);
+			return 0;
+		}
+		
+C++ Constructors
+================
+- Special method, that is automatically called when an object of a class is created.
+- To create a constructor, use the *same name* as class, followed by ().
+- Constructor is always *public*, and *does not* return any value.
+- Just like functions, the constructors can also be defined *inside* or *outside* of the class.
+- e.g. class car
+		{
+			public:
+				string brand;
+				string model;
+				int topspeed;
+				car();
+		};	
+		car::car()
+		{
+			cout << "An object has been created";
+		}
+		int main()
+		{
+			car obj1;			// this will call constructor function.
+			obj1.brand = "BMW";
+			obj1.model = "X5";
+			obj1.topspeed = 500;
+			return 0;
+		}
+		
+C++ Access Specifiers
+=====================
+- PRIVATE, PUBLIC, PROTECTED.
+- PUBLIC: members are accessible from outside the class.
+- PRIVATE: members cannot be accessed/viewed from outside the class.
+- PROTECTED: members cannot be accessed/viewed from outside, but can be accessed in inherited class.
+- e.g. class myClass
+		{
+			public:
+				int a;
+			private:
+				int z;
+		};
+		int main()
+		{
+			myClass obj1;
+			obj1.a = 10;		// allowed
+			obj1.z = 20;		// NOT allowed
+			return 0;	
+		}
+- *private* members can be accessed using *public* methods inside the same class.
+- By default, all class members are *private* if the access specifier is not mentioned.
+
+C++ Encapsulation
+================
+- To make sure that *sensitive* data is hidden from the user.
+- We must declare variable as *private* (cannot be accessed from outside the class).
+- For outside users, you can provide *get* and *set* methods.
+
+- WHY ENCAPSULATION
+=================
+- It is good practice to declare your class attributes as "private".
+- Encapsulation ensures better control of your data, because you can change one part of the code without affecting other parts.
+- Increased security of data.
+
+e.g. 
+#include <iostream>
+using namespace std;
+
+class employee
+{
+	private:
+		int salary;		# encapsulated (security)
+		
+	public:
+		void set_salary(int s)	# setting the private variable
+		{
+			salary = s;
+		}
+		int get_salary()		# getting the private variable
+		{
+			return salary;
+		}
+};
+
+int main()
+{
+	employee obj1;
+	obj1.set_salary(10000);
+	cout << obj1.get_salary();
+	return 0;
+}
+
+C++ Inheritance
+=================
+- It is possible to inherit attributes and methods from one class to another.
+- We group the "inheritance concept" into two categories
+	- base class: (parent) the class being inherited from
+	- derived class: (child) the class that inherits from another class.
+- To inherit a class, we use ":" colon symbol.
+- e.g. the class CAR (child) inherits attributes and methods from the class VEHICLE (parent)
+
+e.g.
+class vehicle
+{
+	public:
+		string brand = "maruti";
+		void honk()
+		{
+			cout << "tuut tuut";
+		}
+};
+
+class car: public vehicle		# CAR inherits VEHICLE publically.
+{
+	public:
+		string model = "boleno";
+};
+
+int main()
+{
+	car mycar;
+	mycar.honk();	# access the method from inherited class.
+	cout << mycar.brand << " vehicle has a model named " << mycar.model;
+	return 0;
+}
+
+Multilevel inheritance
+=======================
+- A class can be derived from one class, which is already derived from another class.
+- myGrandChild deviced from myChild, which is futher derived from Parent.
+
+e.g.
+class parent
+{
+	public:
+		void myfunc()
+		{
+			cout << "We are in parent";
+		}
+};
+
+class mychild: public parent
+{
+};
+
+class grandchild: public mychild
+{
+};
+
+int main()
+{
+	grandchild objgrandchild;
+	objgrandchild.myfunc();
+	return 0;
+}
+
+Multiple inheritance
+=====================
+- A class derived from more than one base class.
+- using comma-seperated list.
+
+e.g.
+class parent1
+{
+	public:
+		void myfunc1()
+		{
+			cout << "we are in parent1 class";
+		}
+};
+
+class parent2
+{
+	public:
+		void myfunc2()
+		{
+			cout << "we are in parent2 class";
+		}
+};
+
+class child: public parent1, public parent2
+{
+};
+
+int main()
+{
+	child objchild;
+	objchild.myfunc1()
+	objchild.myfunc2()
+	return 0;
+}
+
+Access specifiers
+===================
+- PROTECTED is similar to PRIVATE.
+- but it can be accessed in the inherited class.
+
+e.g.
+class employee
+{
+	protected:
+		int salary;
+};
+
+class programmer: public employee
+{
+	public:
+		int bonus;
+		void setsalary(int s)
+		{
+			salary = s;
+		}
+		int getsalary()
+		{
+			return salary;
+		}
+};
+
+int main()
+{
+	programmer objprog;
+	objprog.setsalary(10000);
+	cout << objprog.getsalary();
+	return 0;
+}
+
+===========================================
+
+Polymorphism
+=============
+
+- Polymorphism means "many forms"
+- it occurs when we have many classes that are related to each other by inheritance.
+- Polymorphism uses those methods to perform different tasks.
+- This allows us to perform a single action in different ways.
+- Base class ANIMAL that has a method ANIMALSOUND().
+	- Derived classes will also have own implementation of ANIMALSOUND()
+
+e.g.
+class animal
+{
+	public:
+		void animalsound()
+		{
+			cout << "Animal sound ...";
+		}
+};
+
+class dog: public animal
+{
+	public:
+		void animalsound()
+		{
+			cout << "DOG: sounds bhau bhau";
+		}
+};
+
+class cat: public animal
+{
+	public:
+		void animalsound()
+		{
+			cout << "CAT: sounds meow meow";
+		}
+};
+
+int main()
+{
+	animal objanimal;
+	dog objdog;			# create derived class object, and override ANIMALSOUND() method.
+	cat objcat;			# create derived class object, and override ANIMALSOUND() method.
+	objanimal.animalsound(); cout << endl;
+	objdog.animalsound(); cout << endl;
+	objcat.animalsound(); cout << endl;
+	return 0;
+}
+
+================================================
+
+C++ Files
+===========
+- The fstream library allows us to work with file.
+- To use fstream library, include both "iostream" and "fstream"
+- There are three classes included in fstream	
+	- ifstream - creates and writes to file
+	- ofstream - reads the file
+	- fstream - combination of ifstream and ofstream: creates, reads, writes
+	
+Create and Write
+=================
+- To create a file, use either ofstream or fstream class, and specify name of the file.
+e.g.
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+	ofstream myfile("filename.txt");
+	myfile << "This is a first line in the file";
+	myfile.close();
+}
+
+Read a file
+============
+- To read a file, use either ifstream or fstream, and the name of the file.
+e.g.
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+	string mytext;
+	ifstream myreadfile("filename.txt");
+	while(getline(myreadfile, mytext)
+	{
+		cout << mytext;
+	}
+	myreadfile.close();
+}
+
+=============================================
+
+C++ Exceptions
+=============
+- When executing c++ code, there could be different errors.
+	- errors made by programmers
+	- errors due to wrong input
+	- errors due to unforseable things.
+- When error occurs, c++ execution stops, and generate an error.
+	- it means, c++ throw an exception (an error).
+- Exception handling consists of three keywords:
+	- *try* - this defines a block of code to be tested for errors.
+	- *throw* - this throws an error when problem detected, with custom errors.
+	- *catch* - this defines a block of code to be executed, if error occurs in TRY block.
+- TRY and CATCH keyword come in pairs.
+- e.g.
+try
+{
+	// some block of code
+	throw exception;
+}
+catch()		// it takes a parameter. // It will be skipped if no error in TRY block.
+{
+	// some block of code
+}
+
+- e.g.
+int main()
+{
+	try
+	{
+		int age = 15;
+		if (age >= 18)
+		{
+			cout << "ACCESS GRANTED";
+		}
+		else
+		{
+			throw(age);
+		}
+	}
+	catch(int age)
+	{
+		cout << "ACCESS RESTRICTED";
+		cout << "Age is: " << age;
+
+	}
+}
+
+- Throw any error, and catch is using ... (three dots)
+- e.g. 
+int main()
+{
+	try
+	{
+		int age = 15;
+		if (age >= 18)
+		{
+			cout << "ACCESS GRANTED";
+		}
+		else
+		{
+			throw 505;
+		}
+	}
+	catch(...)
+	{
+		cout << "ACCESS RESTRICTED";
+
+	}
+}

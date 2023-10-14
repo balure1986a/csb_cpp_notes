@@ -1,0 +1,348 @@
+###########################################
+CPP practice code
+###########################################
+
+###########################################
+cpp classes 
+###########################################
+
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+
+class Arithmatic
+{
+	private:
+    	int a;
+      int b;
+    public:
+    	Arithmatic(int a, int b);
+      int add();
+      int sub();
+};
+Arithmatic::Arithmatic(int a, int b)
+{
+	this->a = a;
+  this->b = b;
+}
+int Arithmatic::add()
+{
+	int c;
+  c = a + b;
+  return c;
+}
+int Arithmatic::sub()
+{
+	int c;
+  c = a - b;
+  return c;
+}
+
+int main()
+{
+	Arithmatic objArith(20, 10);
+
+  int resAdd;
+  resAdd = objArith.add();
+  printf("Result of addition: = %d \n", resAdd);
+
+  int resSub;
+  resSub = objArith.sub();
+  printf("Result of subtraction: = %d \n", resSub);
+  
+  return 0;
+}
+
+###########################################
+cpp templates 
+###########################################
+
+NOTE:
+======
+- we need to write "template <class T>" to make the class as template class.
+- we need to declare the template before constructors/functions where we want a template.
+- we need to mention the template type whereever we use the class.
+- we need to replace all the types with T.
+- while creating object, we need to mention the data type of the template, e.g. int, float, double.
+
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+
+template <class T>
+class Arithmatic
+{
+	private:
+    	T a;
+      T b;
+    public:
+    	Arithmatic(T a, T b);
+      T add();
+      T sub();
+};
+
+template <class T>
+Arithmatic<T>::Arithmatic(T a, T b)
+{
+	this->a = a;
+  this->b = b;
+}
+
+template <class T>
+T Arithmatic<T>::add()
+{
+	T c;
+  c = a + b;
+  return c;
+}
+
+template <class T>
+T Arithmatic<T>::sub()
+{
+	T c;
+  c = a - b;
+  return c;
+}
+
+int main()
+{
+	Arithmatic<double> objArith(30.2, 10.2);
+    
+  cout << "Result of addition = " << objArith.add() << endl;
+  cout << "Result of subtraction = " << objArith.sub() << endl;
+  
+  return 0;
+}
+
+
+
+###########################################
+function templates 
+###########################################
+
+NOTE:
+=====
+- any generic function that can be used for different data types.
+- e.g. sort(), max(), min(), printArray(), etc
+
+#include <iostream>
+#include <stdio.h>
+​
+using namespace std;
+​
+template <typename T> 
+T myMax(T x, T y)
+{
+    return (x > y) ? x : y;
+}
+​
+int main()
+{
+    cout << myMax<int>(10, 20) << endl;
+    cout << myMax<double>(33.33, 22.22) << endl;
+    
+    return 0;
+}
+​
+###########################################
+Factorial using RECURSION
+###########################################
+
+#include <iostream>
+
+int fact(int);
+
+using namespace std;
+
+int fact(int num)
+{
+	int res;
+	if (num == 0)
+    	return 1;
+    else
+    	res = num * fact(num - 1);
+    	return res;
+}
+
+int main() 
+{
+	int num = 4;
+    int res = 0;
+    res = fact(num);
+    cout << "RES = " << res << endl;
+    return 0;
+}
+
+###########################################
+Fabonacci using function call.
+###########################################
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	int first = 1;
+    int second = 1;
+    int third = 0;
+	int fabLen = 10;
+	cout << first << " ";
+    cout << second << " ";
+    for (int i = 0; i < fabLen; i++)
+    {
+    	third = first + second;
+		cout << third << " ";
+		first = second;
+        second = third;
+    }
+    return 0;
+}
+
+###########################################
+Fabonacci serios using RECURSION
+###########################################
+
+#include <iostream>
+
+void fabSer(int, int);
+
+using namespace std;
+
+static int count = 0;
+
+void fabSer(int first, int second)
+{
+    if (count == 10)
+    	return;
+	int third = first + second;
+    cout << third << " ";
+    first = second;
+    second = third;
+    count++;
+    fabSer(first, second);    // recursion
+}
+
+int main() 
+{
+	int first = 1;
+    int second = 1;
+    int third = 0;
+	int fabLen = 10;
+	cout << first << " ";
+    cout << second << " ";
+    fabSer(first, second); 		// call to function
+    return 0;
+}
+
+###########################################
+Palindrome (String)
+###########################################
+
+#include <iostream>
+#include <string.h>
+
+int checkPalin(char*);
+
+using namespace std;
+
+static int count = 0;
+
+int checkPalin(char* ps1)
+{
+	int len = strlen(ps1);
+    cout << "Length = " << len << endl;
+    if (len == 0 || len == 1)
+    	return 0;
+    char* front = ps1;
+    char* rear = ps1 + len - 1;
+    for (int i = 0; i < len/2; i++)
+    {
+		cout << "Front = " << *front << endl;
+		cout << "Rear = " << *rear << endl;
+
+        if (*front != * rear)
+        	return 0;
+        else
+        {	
+        	front++;
+            rear--;
+        }
+    }
+    return 1;
+}
+
+int main() 
+{
+	char s1[] = "asdfdsa";
+    cout << "String = " << s1 << endl;
+    int res = checkPalin(s1);
+    if (res == 1)
+    	cout << "Palindrom" << endl;
+    else if (res == 0)
+    	cout << "NOT a Palindrom" << endl;
+    return 0;
+}
+
+###########################################
+Convert seconds into days, hours, minutes, and seconds
+###########################################
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+	int sec = 86485;  //3600, 3800, 86400
+    
+	int seconds = sec%(60);
+    int minutes = sec/(60);  
+    if (minutes>=60)
+    	minutes = minutes%60;
+	int hours = sec/(60*60);
+    if (hours>=24)
+    	hours = hours%24;
+	int days = sec/(60*60*24);
+	if (days>=30)
+    	days = days%30;
+
+	cout << "sec = " << sec << endl;
+	cout << "seconds = " << seconds << endl;
+    cout << "minutes = " << minutes << endl;
+    cout << "hours = " << hours << endl;
+    cout << "days = " << days << endl;
+
+    return 0;
+}
+
+###########################################
+swap number using call by reference.
+###########################################
+
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+void swap(int*, int*);
+
+void swap(int* pa, int* pb)
+{
+	int temp;
+    temp = *pa;
+    *pa = *pb;
+    *pb = temp;
+}
+
+int main()
+{
+	int a = 10;
+    int b = 20;
+    cout << "Before = " << a << ", " << b << endl;
+    swap(&a, &b);
+    cout << "After = " << a << ", " << b << endl;
+    return 0;
+}
+
