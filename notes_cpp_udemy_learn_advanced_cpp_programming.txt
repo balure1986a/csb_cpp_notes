@@ -1,0 +1,82 @@
+Exceptions Basic
+======================
+
+- Exceptions are error handling mechanism.
+- Exceptions can be used to find the error which is most likely to occur in program.
+    - e.g. file not found.
+- It should cover the part which the program cannot cover.
+- Some IDE require setting up for exception handling.
+
+#include <iostream>
+using namespace std;
+
+void mightGoWrong()
+{
+    bool error = false;
+    bool error2 = true;
+    
+    if (error)		// ONLY one throw block will be executed. Rest will be ignored.
+    {
+    	//throw 8;	// some error code here
+        throw "something went wrong";	// we can throw anything, can be object also
+    }
+    if (error2)
+    {
+    	throw string("something else went wrong");
+    }
+}
+
+int main() 
+{
+    //mightGoWrong();	// no handling of the error.
+    try
+    {
+    	cout << "TRY: inside try block..." << endl;
+    	mightGoWrong();	// no handling of the error. 
+    }
+    catch(int e)
+    {
+    	cout << "CATCH: error caught here, int error..." << e << endl;
+    }
+    catch(const char *e)	// we can have multiple catch() block
+    {
+    	cout << "CATCH: error caught here, string error..." << e << endl;
+    }
+    catch(string e)
+    {
+    	cout << "CATCH: error caught here, string error..." << e << endl;
+    }
+    	
+    cout << "Program still running..." << endl;
+    return 0;
+}
+
+Standard Exceptions
+======================
+- Exceptions can be thrown from the constructors also.
+    - Since constructors dont have mechanism to return with error code.
+    - So, exception handling are the good ways to handle the error/exception.
+    - We might have to ENABLE the exceptions of the compilers.
+    - e.g. with 'new' to create memory allocation,
+        - if enough memory is not available, some compilers return NULL.
+        - and some compilers throws an exception.
+        
+#include <iostream>
+using namespace std;
+
+class CanGoWrong
+{	
+	public:
+	CanGoWrong()	// constructor
+    {
+        char *pMem = new char[9999999999999999999999];
+        delete [] pMem;
+    }
+};
+
+int main() 
+{
+    CanGoWrong wrong;
+    
+    return 0;
+}
